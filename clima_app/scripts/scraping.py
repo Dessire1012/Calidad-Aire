@@ -19,20 +19,24 @@ def run():
     stations_data = {}
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)  # Usa Chromium headless
-        page = browser.new_page(viewport={"width": 1920, "height": 1080})
-        page.goto("https://estaciones.simet.amdc.hn/public-dashboards/e4d697a0e31647008370b09a592c0129?orgId=1&refresh=1m&from=now%2Fy&to=now")
-        
-        print("URL actual:", page.url)
+        browser = p.chromium.launch(headless=True)  # usa headless=False si quieres verlo en vivo
+        page = browser.new_page(
+            viewport={"width": 1920, "height": 1080},
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36"
+        )
 
-        # Esperar unos segundos para que cargue
+        url = "https://estaciones.simet.amdc.hn/public-dashboards/e4d697a0e31647008370b09a592c0129?orgId=1&refresh=1m&from=now%2Fy&to=now"
+        print("Navegando a:", url)
+        page.goto(url, timeout=60000)
+
+        page.wait_for_load_state("networkidle")
+
         page.wait_for_timeout(60000)
-
-        # Guardar captura de pantalla
-        page.screenshot(path="scraping_test.png", full_page=True)
-        print("Screenshot guardado en scraping_test.png")
-
         page.evaluate("document.body.style.zoom='40%'")
+
+        # Captura para debug
+        page.screenshot(path="scraping_test.png", full_page=True)
+        print("Screenshot guardado")
 
         # Esperar elementos PM2.5
         try:
