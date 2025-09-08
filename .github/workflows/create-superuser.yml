@@ -1,0 +1,32 @@
+name: Create superuser (Render)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-superuser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Migrate & create superuser
+        working-directory: ProyectoClima
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }} # External URL de Render
+          DJANGO_SETTINGS_MODULE: ProyectoClima.settings
+          PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/ProyectoClima
+          DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
+          DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
+          DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
+        run: |
+          python manage.py migrate --noinput
+          python manage.py createsuperuser --noinput
