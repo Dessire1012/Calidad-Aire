@@ -39,11 +39,13 @@ def load_grafana_and_grab(page):
     page.goto(url, timeout=180_000, wait_until="domcontentloaded")
     page.wait_for_load_state("networkidle", timeout=180_000)
 
-    page.screenshot(path="loading.png", full_page=True)
-    print("Screenshot guardado: loading.png")
-
-    # Esperar a que los valores realmente aparezcan en cada panel
-    page.wait_for_selector("div[data-testid='data-testid Bar gauge value'] span", timeout=180_000)
+    try:
+        title = page.title()
+        body_sample = page.inner_text("body")[:200]
+        print(f"[DEBUG] Título de la página: {title}")
+        print(f"[DEBUG] Fragmento del body: {body_sample!r}")
+    except Exception as e:
+        print("[WARN] No se pudo obtener título/texto de la página:", e)
 
     # viewport grande en vez de zoom
     page.set_viewport_size({"width": 5120, "height": 2880})
