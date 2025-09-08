@@ -15,6 +15,14 @@ django.setup()
 
 from clima_app.models import Medicion, Estacion, Contaminante
 
+print("=== Django/DB ===")
+print("DJANGO_SETTINGS_MODULE:", os.getenv("DJANGO_SETTINGS_MODULE"))
+print("DB ENGINE:", settings.DATABASES['default']['ENGINE'])
+print("DB NAME:", settings.DATABASES['default']['NAME'])
+print("DB HOST:", settings.DATABASES['default'].get('HOST'))
+print("USING DATABASE URL:", os.getenv("DATABASE_URL"))
+print("=================\n")
+
 def run():
     stations_data = {}
 
@@ -24,6 +32,7 @@ def run():
         page.goto("https://estaciones.simet.amdc.hn/public-dashboards/e4d697a0e31647008370b09a592c0129?orgId=1&refresh=1m&from=now%2Fy&to=now")
 
         # Simula zoom si es necesario
+        page.wait_for_timeout(60000)
         page.evaluate("document.body.style.zoom='40%'")
 
         # Esperar elementos PM2.5
