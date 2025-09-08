@@ -6,10 +6,13 @@ on:
 jobs:
   create-superuser:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: "3.11"
 
@@ -18,15 +21,42 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Detecta automáticamente manage.py y settings.py
+      - name: Locate Django files dynamically
+        id: locate
+        shell: bash
+        run: |
+          set -e
+          MANAGE="$(find . -maxdepth 5 -type f -name manage.py | head -n1)"
+          [ -z "$MANAGE" ] && { echo "❌ No se encontró manage.py"; exit 1; }
+          MANAGE_DIR="$(dirname "$MANAGE")"
+
+          SETTINGS_FILE="$(find "$MANAGE_DIR" -maxdepth 3 -type f -name settings.py | head -n1)"
+          [ -z "$SETTINGS_FILE" ] && { echo "❌ No se encontró settings.py cerca de $MANAGE"; exit 1; }
+          SETTINGS_DIR="$(dirname "$SETTINGS_FILE")"
+          SETTINGS_PKG="$(basename "$SETTINGS_DIR")"
+          DJANGO_SETTINGS_MODULE="${SETTINGS_PKG}.settings"
+
+          REPO_ROOT="$GITHUB_WORKSPACE"
+          PY_PATH="${REPO_ROOT}:${MANAGE_DIR}"
+
+          echo "MANAGE_DIR=$MANAGE_DIR" >> $GITHUB_ENV
+          echo "DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE" >> $GITHUB_ENV
+          echo "PYTHONPATH=$PY_PATH" >> $GITHUB_ENV
+
+          echo "✅ manage.py dir: $MANAGE_DIR"
+          echo "✅ DJANGO_SETTINGS_MODULE: $DJANGO_SETTINGS_MODULE"
+          echo "✅ PYTHONPATH: $PY_PATH"
+
       - name: Migrate & create superuser
-        working-directory: ProyectoClima
+        working-directory: ${{ env.MANAGE_DIR }}
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }} # External URL de Render
-          DJANGO_SETTINGS_MODULE: ProyectoClima.settings
-          PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/ProyectoClima
+          DJANGO_SETTINGS_MODULE: ${{ env.DJANGO_SETTINGS_MODULE }}
+          PYTHONPATH: ${{ env.PYTHONPATH }}
           DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
           DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
           DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
         run: |
           python manage.py migrate --noinput
-          python manage.py createsuperuser --noinput
+          python manage.py createsuperuser --noinput || echo "✅ Superuser ya existe, continuando…"
