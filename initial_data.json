@@ -1,0 +1,2664 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima_app",
+    "model": "contaminante"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima_app",
+    "model": "entidad"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima_app",
+    "model": "estacion"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima_app",
+    "model": "localidad"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima_app",
+    "model": "nivelica"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima_app",
+    "model": "medicion"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "clima_app",
+    "model": "nivelescontaminantes"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m9lesfal0hgde703d36tehmi9dhib9gh",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBGypBx6d4zkIGhUjWQlHbVeHdt0oVu_3vvbyrwupSw9jyHSdRFgTr9bpHTM9cdyIPrvenU6jJPUe-KPmjXtyb5dT3cv4PCvXxrzzAi8AhAQpjIIRKITTEP1jHDEC1GEkRvjFgWT2d0NnEGlwyJUe8P20k3mw:1ussnR:bV1PpLHRw2PrHMG-GOWMf73vnzhT2XmmG0eqci8Mk2g",
+    "expire_date": "2025-09-15T00:53:21.285Z"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 1,
+  "fields": {
+    "nombre": "PM1",
+    "descripcion": "Partículas finas menores a 1 µm"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 2,
+  "fields": {
+    "nombre": "PM2.5",
+    "descripcion": "Partículas finas menores a 2.5 µm"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 3,
+  "fields": {
+    "nombre": "PM10",
+    "descripcion": "Partículas menores a 10 µm"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 4,
+  "fields": {
+    "nombre": "O₃",
+    "descripcion": "Ozono"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 5,
+  "fields": {
+    "nombre": "NO₂",
+    "descripcion": "Dióxido de nitrógeno"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 6,
+  "fields": {
+    "nombre": "SO₂",
+    "descripcion": "Dióxido de azufre"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 7,
+  "fields": {
+    "nombre": "CO",
+    "descripcion": "Monóxido de carbono"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 8,
+  "fields": {
+    "nombre": "RH",
+    "descripcion": "Humedad relativa"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 9,
+  "fields": {
+    "nombre": "Temperatura",
+    "descripcion": "Temperatura ambiente en °C"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 10,
+  "fields": {
+    "nombre": "UM0.3",
+    "descripcion": "Conteo de partículas ultrafinas <0.3 µm"
+  }
+},
+{
+  "model": "clima_app.contaminante",
+  "pk": 11,
+  "fields": {
+    "nombre": "ICA",
+    "descripcion": "Índice de Calidad del Aire"
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 1,
+  "fields": {
+    "nombre": "Comayagua",
+    "fuente": "IQAir",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 2,
+  "fields": {
+    "nombre": "Lamani",
+    "fuente": "IQAir",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 3,
+  "fields": {
+    "nombre": "Copan",
+    "fuente": "IQAir",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 4,
+  "fields": {
+    "nombre": "San Pedro Sula",
+    "fuente": "IQAir",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 5,
+  "fields": {
+    "nombre": "El Terrero, Francisco Morazán",
+    "fuente": "IQAir",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 6,
+  "fields": {
+    "nombre": "Tegucigalpa",
+    "fuente": "IQAir",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 7,
+  "fields": {
+    "nombre": "Dulce Nombre de Culmí, Olancho",
+    "fuente": "IQAir",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 8,
+  "fields": {
+    "nombre": "Agua Blanca Sur, Yoro",
+    "fuente": "IQAir",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 9,
+  "fields": {
+    "nombre": "El Negrito, Yoro",
+    "fuente": "IQAir",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 10,
+  "fields": {
+    "nombre": "Lamaní Instituto - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 11,
+  "fields": {
+    "nombre": "Lamaní Tablazón - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 12,
+  "fields": {
+    "nombre": "Dulce Nombre de Culmí, Olancho - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 13,
+  "fields": {
+    "nombre": "El Negrito, Yoro - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 14,
+  "fields": {
+    "nombre": "Santa Rita, Yoro - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 15,
+  "fields": {
+    "nombre": "Danlí - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 16,
+  "fields": {
+    "nombre": "Zamorano IAD - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 17,
+  "fields": {
+    "nombre": "El Negrito, Yoro (dup) - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 18,
+  "fields": {
+    "nombre": "Copán Ruinas - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 19,
+  "fields": {
+    "nombre": "Sambo Creek - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 20,
+  "fields": {
+    "nombre": "Cantarranas, Francisco Morazán - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 21,
+  "fields": {
+    "nombre": "Roatán RMP - Sustenta",
+    "fuente": "OpenAQ",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 22,
+  "fields": {
+    "nombre": "21 de Octubre",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 23,
+  "fields": {
+    "nombre": "Bomberos Juana Laínez",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 24,
+  "fields": {
+    "nombre": "Kennedy",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 25,
+  "fields": {
+    "nombre": "Planta Concepción",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 26,
+  "fields": {
+    "nombre": "Planta Laureles",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 27,
+  "fields": {
+    "nombre": "Planta Picacho",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 28,
+  "fields": {
+    "nombre": "SAT AMDC: UMAPS",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 29,
+  "fields": {
+    "nombre": "AMDC 21 de Octubre",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 30,
+  "fields": {
+    "nombre": "AMDC Bomberos Juana Lainez",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 31,
+  "fields": {
+    "nombre": "AMDC Kennedy",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 32,
+  "fields": {
+    "nombre": "AMDC Planta Concepción",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 33,
+  "fields": {
+    "nombre": "AMDC Planta Laureles",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.estacion",
+  "pk": 34,
+  "fields": {
+    "nombre": "AMDC Planta Picacho",
+    "fuente": "AMDC",
+    "external_id": null,
+    "lat": null,
+    "lon": null
+  }
+},
+{
+  "model": "clima_app.nivelica",
+  "pk": 1,
+  "fields": {
+    "nivel": "Excelente",
+    "rango_min": 0.0,
+    "rango_max": 50.0,
+    "color_seleccionado": "Verde",
+    "color_hex": "#00E400",
+    "clasificacion_salud": "Excelente"
+  }
+},
+{
+  "model": "clima_app.nivelica",
+  "pk": 2,
+  "fields": {
+    "nivel": "Bueno",
+    "rango_min": 51.0,
+    "rango_max": 100.0,
+    "color_seleccionado": "Amarillo",
+    "color_hex": "#FFFF00",
+    "clasificacion_salud": "Bueno"
+  }
+},
+{
+  "model": "clima_app.nivelica",
+  "pk": 3,
+  "fields": {
+    "nivel": "Regular",
+    "rango_min": 101.0,
+    "rango_max": 150.0,
+    "color_seleccionado": "Naranja",
+    "color_hex": "#FF7E00",
+    "clasificacion_salud": "Regular"
+  }
+},
+{
+  "model": "clima_app.nivelica",
+  "pk": 4,
+  "fields": {
+    "nivel": "Malo",
+    "rango_min": 151.0,
+    "rango_max": 200.0,
+    "color_seleccionado": "Rojo",
+    "color_hex": "#FF0000",
+    "clasificacion_salud": "Malo"
+  }
+},
+{
+  "model": "clima_app.nivelica",
+  "pk": 5,
+  "fields": {
+    "nivel": "Muy Malo",
+    "rango_min": 201.0,
+    "rango_max": 300.0,
+    "color_seleccionado": "Morado",
+    "color_hex": "#8F3F97",
+    "clasificacion_salud": "Muy Malo"
+  }
+},
+{
+  "model": "clima_app.nivelica",
+  "pk": 6,
+  "fields": {
+    "nivel": "Extremadamente Malo",
+    "rango_min": 301.0,
+    "rango_max": 500.0,
+    "color_seleccionado": "Marrón",
+    "color_hex": "#7E0023",
+    "clasificacion_salud": "Muy Malo"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add contaminante",
+    "content_type": [
+      "clima_app",
+      "contaminante"
+    ],
+    "codename": "add_contaminante"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change contaminante",
+    "content_type": [
+      "clima_app",
+      "contaminante"
+    ],
+    "codename": "change_contaminante"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete contaminante",
+    "content_type": [
+      "clima_app",
+      "contaminante"
+    ],
+    "codename": "delete_contaminante"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view contaminante",
+    "content_type": [
+      "clima_app",
+      "contaminante"
+    ],
+    "codename": "view_contaminante"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add entidad",
+    "content_type": [
+      "clima_app",
+      "entidad"
+    ],
+    "codename": "add_entidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change entidad",
+    "content_type": [
+      "clima_app",
+      "entidad"
+    ],
+    "codename": "change_entidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete entidad",
+    "content_type": [
+      "clima_app",
+      "entidad"
+    ],
+    "codename": "delete_entidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view entidad",
+    "content_type": [
+      "clima_app",
+      "entidad"
+    ],
+    "codename": "view_entidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add estacion",
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "codename": "add_estacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change estacion",
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "codename": "change_estacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete estacion",
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "codename": "delete_estacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view estacion",
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "codename": "view_estacion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add localidad",
+    "content_type": [
+      "clima_app",
+      "localidad"
+    ],
+    "codename": "add_localidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change localidad",
+    "content_type": [
+      "clima_app",
+      "localidad"
+    ],
+    "codename": "change_localidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete localidad",
+    "content_type": [
+      "clima_app",
+      "localidad"
+    ],
+    "codename": "delete_localidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view localidad",
+    "content_type": [
+      "clima_app",
+      "localidad"
+    ],
+    "codename": "view_localidad"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add nivel ica",
+    "content_type": [
+      "clima_app",
+      "nivelica"
+    ],
+    "codename": "add_nivelica"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change nivel ica",
+    "content_type": [
+      "clima_app",
+      "nivelica"
+    ],
+    "codename": "change_nivelica"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete nivel ica",
+    "content_type": [
+      "clima_app",
+      "nivelica"
+    ],
+    "codename": "delete_nivelica"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view nivel ica",
+    "content_type": [
+      "clima_app",
+      "nivelica"
+    ],
+    "codename": "view_nivelica"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add medicion",
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "codename": "add_medicion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change medicion",
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "codename": "change_medicion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete medicion",
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "codename": "delete_medicion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view medicion",
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "codename": "view_medicion"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add niveles contaminantes",
+    "content_type": [
+      "clima_app",
+      "nivelescontaminantes"
+    ],
+    "codename": "add_nivelescontaminantes"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change niveles contaminantes",
+    "content_type": [
+      "clima_app",
+      "nivelescontaminantes"
+    ],
+    "codename": "change_nivelescontaminantes"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete niveles contaminantes",
+    "content_type": [
+      "clima_app",
+      "nivelescontaminantes"
+    ],
+    "codename": "delete_nivelescontaminantes"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view niveles contaminantes",
+    "content_type": [
+      "clima_app",
+      "nivelescontaminantes"
+    ],
+    "codename": "view_nivelescontaminantes"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Ms515zKmTFRZhtuacjgyhY$p/uTWBraMbQqMxuFLuaDnuG/Yav/YoRTZeD1Bd05k/E=",
+    "last_login": "2025-09-01T00:53:21.275Z",
+    "is_superuser": true,
+    "username": "dessi",
+    "first_name": "",
+    "last_name": "",
+    "email": "dessire@unitec.edu",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-09-01T00:53:16.185Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-09-08T00:04:44.664Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "9",
+    "object_repr": "El Negrito, Yoro (IQAir)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-09-08T00:04:53.082Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "8",
+    "object_repr": "Agua Blanca Sur, Yoro (IQAir)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-09-08T00:04:59.344Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "1",
+    "object_repr": "Comayagua (IQAir)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-09-08T00:05:03.714Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "7",
+    "object_repr": "Dulce Nombre de Culmí, Olancho (IQAir)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-09-08T00:05:08.027Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "9",
+    "object_repr": "El Negrito, Yoro (IQAir)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-09-08T00:05:12.084Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "5",
+    "object_repr": "El Terrero, Francisco Morazán (IQAir)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-09-08T00:05:16.689Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "4",
+    "object_repr": "San Pedro Sula (IQAir)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-09-08T00:05:20.719Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "3",
+    "object_repr": "Copan (IQAir)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-09-08T00:05:25.408Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "2",
+    "object_repr": "Lamani (IQAir)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-09-08T00:05:29.766Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "6",
+    "object_repr": "Tegucigalpa (IQAir)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-09-08T00:06:13.745Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "27",
+    "object_repr": "AMDC Planta Picacho (AMDC)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-09-08T00:07:20.635Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "27",
+    "object_repr": "Planta Picacho (AMDC)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-09-08T00:07:23.921Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "26",
+    "object_repr": "Planta Laureles (AMDC)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-09-08T00:07:27.535Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "24",
+    "object_repr": "Kennedy (AMDC)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-09-08T00:07:32.860Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "23",
+    "object_repr": "Bomberos Juana Laínez (AMDC)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-09-08T00:07:36.364Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "22",
+    "object_repr": "21 de Octubre (AMDC)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-09-08T00:07:42.915Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "estacion"
+    ],
+    "object_id": "25",
+    "object_repr": "Planta Concepción (AMDC)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nombre\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "329",
+    "object_repr": "SAT AMDC: UMAPS - 2025-09-07 18:26:28.317512+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "328",
+    "object_repr": "SAT AMDC: UMAPS - 2025-09-07 18:26:28.307079+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "327",
+    "object_repr": "SAT AMDC: UMAPS - 2025-09-07 18:26:28.288469+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "326",
+    "object_repr": "AMDC Planta Picacho - 2025-09-07 18:26:28.276988+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "325",
+    "object_repr": "AMDC Planta Picacho - 2025-09-07 18:26:28.244518+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "324",
+    "object_repr": "AMDC Planta Picacho - 2025-09-07 18:26:28.222742+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "323",
+    "object_repr": "AMDC Planta Laureles - 2025-09-07 18:26:28.202645+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "322",
+    "object_repr": "AMDC Planta Laureles - 2025-09-07 18:26:28.165994+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "321",
+    "object_repr": "AMDC Planta Laureles - 2025-09-07 18:26:28.155672+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "320",
+    "object_repr": "AMDC Planta Concepción - 2025-09-07 18:26:28.143093+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "319",
+    "object_repr": "AMDC Planta Concepción - 2025-09-07 18:26:28.131055+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "318",
+    "object_repr": "AMDC Planta Concepción - 2025-09-07 18:26:28.117770+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "317",
+    "object_repr": "AMDC Kennedy - 2025-09-07 18:26:28.100779+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.384Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "316",
+    "object_repr": "AMDC Kennedy - 2025-09-07 18:26:28.081086+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.385Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "315",
+    "object_repr": "AMDC Kennedy - 2025-09-07 18:26:28.066731+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.385Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "314",
+    "object_repr": "AMDC Bomberos Juana Lainez - 2025-09-07 18:26:28.049237+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.385Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "313",
+    "object_repr": "AMDC Bomberos Juana Lainez - 2025-09-07 18:26:28.033503+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.385Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "312",
+    "object_repr": "AMDC Bomberos Juana Lainez - 2025-09-07 18:26:28.023623+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.385Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "311",
+    "object_repr": "AMDC 21 de Octubre - 2025-09-07 18:26:28.013249+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.385Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "310",
+    "object_repr": "AMDC 21 de Octubre - 2025-09-07 18:26:28.005495+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2025-09-08T00:29:09.385Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "309",
+    "object_repr": "AMDC 21 de Octubre - 2025-09-07 18:26:27.963404+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.274Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "350",
+    "object_repr": "SAT AMDC: UMAPS - 2025-09-08 00:29:28.737768+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.274Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "349",
+    "object_repr": "SAT AMDC: UMAPS - 2025-09-08 00:29:28.730413+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.274Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "348",
+    "object_repr": "SAT AMDC: UMAPS - 2025-09-08 00:29:28.721779+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.274Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "347",
+    "object_repr": "AMDC Planta Picacho - 2025-09-08 00:29:28.712546+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "346",
+    "object_repr": "AMDC Planta Picacho - 2025-09-08 00:29:28.705399+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "345",
+    "object_repr": "AMDC Planta Picacho - 2025-09-08 00:29:28.696438+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "344",
+    "object_repr": "AMDC Planta Laureles - 2025-09-08 00:29:28.685526+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "343",
+    "object_repr": "AMDC Planta Laureles - 2025-09-08 00:29:28.675709+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "342",
+    "object_repr": "AMDC Planta Laureles - 2025-09-08 00:29:28.665734+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "341",
+    "object_repr": "AMDC Planta Concepción - 2025-09-08 00:29:28.655769+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "340",
+    "object_repr": "AMDC Planta Concepción - 2025-09-08 00:29:28.643767+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "339",
+    "object_repr": "AMDC Planta Concepción - 2025-09-08 00:29:28.631411+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "338",
+    "object_repr": "AMDC Kennedy - 2025-09-08 00:29:28.617156+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "337",
+    "object_repr": "AMDC Kennedy - 2025-09-08 00:29:28.608966+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "336",
+    "object_repr": "AMDC Kennedy - 2025-09-08 00:29:28.598905+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "335",
+    "object_repr": "AMDC Bomberos Juana Lainez - 2025-09-08 00:29:28.586646+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "334",
+    "object_repr": "AMDC Bomberos Juana Lainez - 2025-09-08 00:29:28.574855+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "333",
+    "object_repr": "AMDC Bomberos Juana Lainez - 2025-09-08 00:29:28.563954+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "332",
+    "object_repr": "AMDC 21 de Octubre - 2025-09-08 00:29:28.553976+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.275Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "331",
+    "object_repr": "AMDC 21 de Octubre - 2025-09-08 00:29:28.547297+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2025-09-08T00:36:34.276Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "330",
+    "object_repr": "AMDC 21 de Octubre - 2025-09-08 00:29:28.535360+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "371",
+    "object_repr": "SAT AMDC: UMAPS - 2025-09-08 00:36:50.794628+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "370",
+    "object_repr": "SAT AMDC: UMAPS - 2025-09-08 00:36:50.787198+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "369",
+    "object_repr": "SAT AMDC: UMAPS - 2025-09-08 00:36:50.779785+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "368",
+    "object_repr": "AMDC Planta Picacho - 2025-09-08 00:36:50.768077+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "367",
+    "object_repr": "AMDC Planta Picacho - 2025-09-08 00:36:50.754938+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "366",
+    "object_repr": "AMDC Planta Picacho - 2025-09-08 00:36:50.745271+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "365",
+    "object_repr": "AMDC Planta Laureles - 2025-09-08 00:36:50.729196+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "364",
+    "object_repr": "AMDC Planta Laureles - 2025-09-08 00:36:50.718472+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "363",
+    "object_repr": "AMDC Planta Laureles - 2025-09-08 00:36:50.709040+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "362",
+    "object_repr": "AMDC Planta Concepción - 2025-09-08 00:36:50.697170+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "361",
+    "object_repr": "AMDC Planta Concepción - 2025-09-08 00:36:50.686936+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.122Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "360",
+    "object_repr": "AMDC Planta Concepción - 2025-09-08 00:36:50.675391+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.123Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "359",
+    "object_repr": "AMDC Kennedy - 2025-09-08 00:36:50.661352+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.123Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "358",
+    "object_repr": "AMDC Kennedy - 2025-09-08 00:36:50.649790+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.123Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "357",
+    "object_repr": "AMDC Kennedy - 2025-09-08 00:36:50.640692+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.123Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "356",
+    "object_repr": "AMDC Bomberos Juana Lainez - 2025-09-08 00:36:50.629434+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.123Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "355",
+    "object_repr": "AMDC Bomberos Juana Lainez - 2025-09-08 00:36:50.622691+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.123Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "354",
+    "object_repr": "AMDC Bomberos Juana Lainez - 2025-09-08 00:36:50.613831+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.123Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "353",
+    "object_repr": "AMDC 21 de Octubre - 2025-09-08 00:36:50.605684+00:00 - ICA",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.123Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "352",
+    "object_repr": "AMDC 21 de Octubre - 2025-09-08 00:36:50.596912+00:00 - PM10",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2025-09-08T00:41:39.123Z",
+    "user": [
+      "dessi"
+    ],
+    "content_type": [
+      "clima_app",
+      "medicion"
+    ],
+    "object_id": "351",
+    "object_repr": "AMDC 21 de Octubre - 2025-09-08 00:36:50.587060+00:00 - PM2.5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+}
+]
