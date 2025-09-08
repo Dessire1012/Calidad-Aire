@@ -39,6 +39,9 @@ def load_grafana_and_grab(page):
     page.goto(url, timeout=180_000, wait_until="domcontentloaded")
     page.wait_for_load_state("networkidle", timeout=180_000)
 
+    page.screenshot(path="loading.png", full_page=True)
+    print("Screenshot guardado: loading.png")
+
     # Esperar a que los valores realmente aparezcan en cada panel
     page.wait_for_selector("div[data-testid='data-testid Bar gauge value'] span", timeout=180_000)
 

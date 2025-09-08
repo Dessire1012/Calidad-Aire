@@ -52,5 +52,6 @@ jobs:
         with:
           name: scraping_debug
           path: |
+            loading.png
             scraping_test.png
             scraping_dump.html
