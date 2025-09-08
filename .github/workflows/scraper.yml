@@ -60,8 +60,8 @@ jobs:
           python "$SCRIPT_PATH"
 
       - name: Upload screenshot
-        if: always() # sube aunque falle el scraping
-        uses: actions/upload-artifact@v3
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: scraping_screenshot
           path: scraping_test.png
