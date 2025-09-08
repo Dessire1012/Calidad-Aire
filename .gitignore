@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+db.sqlite3
+
+# Static and media
+/staticfiles/
+/media/
+
+# Local settings
+*.env
+.env.local
+.env.*.local
+
+# VSCode / IDEs
+.vscode/
+.idea/
+*.swp
+
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+.mypy_cache/
