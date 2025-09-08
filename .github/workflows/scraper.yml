@@ -2,13 +2,12 @@ name: Run Scraper
 
 on:
   schedule:
-    - cron: "0 14 * * *" # todos los días a las 8AM Honduras (14:00 UTC)
-  workflow_dispatch: # también ejecutable manualmente
+    - cron: "0 14 * * *" # 8:00 AM Honduras (UTC-6)
+  workflow_dispatch:
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -21,7 +20,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install deps
         run: |
           python -m venv .venv
           source .venv/bin/activate
@@ -31,8 +30,10 @@ jobs:
           playwright install --with-deps chromium
 
       - name: Run scraping script
+        working-directory: ProyectoClima
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DJANGO_SETTINGS_MODULE: ProyectoClima.settings
         run: |
-          source .venv/bin/activate
+          source ../.venv/bin/activate          # el venv quedó 1 nivel arriba
           python clima_app/scripts/scraping.py

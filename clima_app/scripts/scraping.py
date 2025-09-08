@@ -3,13 +3,30 @@ import sys
 import django
 from django.utils import timezone
 from playwright.sync_api import sync_playwright
+from pathlib import Path
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProyectoClima.settings')
+THIS_FILE = Path(__file__).resolve()
+
+candidates = [
+    THIS_FILE.parents[2],          
+    THIS_FILE.parents[3] if len(THIS_FILE.parents) > 3 else None,  
+]
+
+for p in candidates:
+    if p and (p / "ProyectoClima" / "settings.py").exists():
+        sys.path.insert(0, str(p))
+        break
+else:
+    raise ImportError("No encontré ProyectoClima/settings.py en rutas candidatas.")
+
+os.environ.setdefault(
+    "DJANGO_SETTINGS_MODULE",
+    os.getenv("DJANGO_SETTINGS_MODULE", "ProyectoClima.settings")
+)
+
 django.setup()
 
 from clima_app.models import Medicion, Estacion, Contaminante
-
 
 def run():
     stations_data = {}
