@@ -30,11 +30,9 @@ jobs:
       - name: Show parent folders (debug)
         run: |
           echo "SCRIPT_PATH=$SCRIPT_PATH"
-          # carpeta donde vive el script
           SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
           echo "SCRIPT_DIR=$SCRIPT_DIR"
           ls -la "$SCRIPT_DIR"
-          # raíz candidata del proyecto (2 niveles arriba del script)
           CANDIDATE_BASE="$(dirname "$(dirname "$SCRIPT_DIR")")"
           echo "CANDIDATE_BASE=$CANDIDATE_BASE"
           ls -la "$CANDIDATE_BASE" || true
@@ -60,3 +58,10 @@ jobs:
           echo "PYTHONPATH=$PYTHONPATH"
           echo "DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE"
           python "$SCRIPT_PATH"
+
+      - name: Upload screenshot
+        if: always() # sube aunque falle el scraping
+        uses: actions/upload-artifact@v3
+        with:
+          name: scraping_screenshot
+          path: scraping_test.png
