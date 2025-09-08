@@ -29,15 +29,7 @@ SECRET_KEY = 'django-insecure-z!t&22tse9y@e6krfixhe_tt@lzv5fgz0c-o-sbmb(%wy%%sd2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "calidad-aire.onrender.com"
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://calidad-aire.onrender.com",
-]
+ALLOWED_HOSTS = []
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
@@ -94,11 +86,10 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-        conn_max_age=600,
-        ssl_require=True,  
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
