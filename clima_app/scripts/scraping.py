@@ -13,6 +13,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", os.getenv("DJANGO_SETTINGS_MODUL
 
 django.setup()
 
+from django.conf import settings
 from clima_app.models import Medicion, Estacion, Contaminante
 
 print("=== Django/DB ===")
@@ -31,7 +32,6 @@ def run():
         page = browser.new_page(viewport={"width": 1920, "height": 1080})
         page.goto("https://estaciones.simet.amdc.hn/public-dashboards/e4d697a0e31647008370b09a592c0129?orgId=1&refresh=1m&from=now%2Fy&to=now")
 
-        # Simula zoom si es necesario
         page.wait_for_timeout(60000)
         page.evaluate("document.body.style.zoom='40%'")
 
