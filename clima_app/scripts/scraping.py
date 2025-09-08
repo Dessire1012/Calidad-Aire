@@ -15,57 +15,58 @@ django.setup()
 
 from clima_app.models import Medicion, Estacion, Contaminante
 
+def load_grafana_and_grab(page):
+    url = "https://estaciones.simet.amdc.hn/public-dashboards/e4d697a0e31647008370b09a592c0129?orgId=1&refresh=1m&from=now%2Fy&to=now"
+    print("Navegando a:", url)
+    page.goto(url, timeout=90_000, wait_until="domcontentloaded")
+    page.wait_for_load_state("networkidle", timeout=60_000)
+    page.wait_for_timeout(5000)
+    page.screenshot(path="scraping_test.png", full_page=True)
+    print("Screenshot guardado: scraping_test.png")
+    html = page.content()
+    with open("scraping_dump.html", "w", encoding="utf-8") as f:
+        f.write(html[:200000])
+    print("Dump HTML guardado: scraping_dump.html")
+    return page
+
 def run():
     stations_data = {}
-
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)  # usa headless=False si quieres verlo en vivo
-        page = browser.new_page(
-            viewport={"width": 1920, "height": 1080},
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36"
-        )
-
-        url = "https://estaciones.simet.amdc.hn/public-dashboards/e4d697a0e31647008370b09a592c0129?orgId=1&refresh=1m&from=now%2Fy&to=now"
-        print("Navegando a:", url)
-        page.goto(url, timeout=60000)
-
-        page.wait_for_load_state("networkidle")
-
-        page.wait_for_timeout(60000)
-        page.evaluate("document.body.style.zoom='40%'")
-
-        # Captura para debug
-        page.screenshot(path="scraping_test.png", full_page=True)
-        print("Screenshot guardado")
-
-        # Esperar elementos PM2.5
         try:
-            pm25_stations = page.query_selector_all("section[data-testid*='Panel header Material Particulado 2.5 µg/m³'] div[style*='text-align: center;']")
-            pm25_values = page.query_selector_all("section[data-testid*='Panel header Material Particulado 2.5 µg/m³'] span.flot-temp-elem")
-
-            print("PM2.5 - estaciones:", len(pm25_stations), "valores:", len(pm25_values))
-
-            for s, v in zip(pm25_stations, pm25_values):
-                stations_data[s.inner_text().strip()] = {"PM2.5": v.inner_text().strip()}
+            # Chromium
+            browser = p.chromium.launch(
+                headless=True,
+                args=["--no-sandbox", "--disable-dev-shm-usage"]
+            )
+            page = browser.new_page(
+                viewport={"width": 1920, "height": 1080},
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36",
+                ignore_https_errors=True,
+            )
+            load_grafana_and_grab(page)
         except Exception as e:
-            print("Error PM2.5:", e)
+            print("[WARN] Chromium falló:", repr(e))
+            # Firefox fallback
+            browser = p.firefox.launch(headless=True)
+            page = browser.new_page(ignore_https_errors=True)
+            load_grafana_and_grab(page)
+        finally:
+            browser.close()
 
-        # PM10
-        try:
-            pm10_stations = page.query_selector_all("section[data-testid*='Panel header Material Particulado 10 µ/m³'] div[style*='text-align: center;']")
-            pm10_values = page.query_selector_all("section[data-testid*='Panel header Material Particulado 10 µ/m³'] span.flot-temp-elem")
+        # Scraping PM2.5
+        pm25_stations = page.query_selector_all("section[data-testid*='Material Particulado 2.5'] div[style*='text-align: center;']")
+        pm25_values = page.query_selector_all("section[data-testid*='Material Particulado 2.5'] span.flot-temp-elem")
+        for s, v in zip(pm25_stations, pm25_values):
+            stations_data[s.inner_text().strip()] = {"PM2.5": v.inner_text().strip()}
+
+        # Scraping PM10
+        pm10_stations = page.query_selector_all("section[data-testid*='Material Particulado 10'] div[style*='text-align: center;']")
+        pm10_values = page.query_selector_all("section[data-testid*='Material Particulado 10'] span.flot-temp-elem")
+        for s, v in zip(pm10_stations, pm10_values):
+            name = s.inner_text().strip()
+            stations_data.setdefault(name, {})
+            stations_data[name]["PM10"] = v.inner_text().strip()
             
-            print("PM10 - estaciones:", len(pm10_stations), "valores:", len(pm10_values))
-
-            for s, v in zip(pm10_stations, pm10_values):
-                if s.inner_text().strip() in stations_data:
-                    stations_data[s.inner_text().strip()]["PM10"] = v.inner_text().strip()
-                else:
-                    stations_data[s.inner_text().strip()] = {"PM10": v.inner_text().strip()}
-        except Exception as e:
-            print("Error PM10:", e)
-
-        # AQI
         try:
             aqi_stations = page.query_selector_all("div[data-testid='data-testid Bar gauge value'] span")
             for idx, station in enumerate(stations_data.keys()):
@@ -76,38 +77,7 @@ def run():
         except Exception as e:
             print("Error AQI:", e)
 
-        browser.close()
-
-    # --- Guardar en Django ---
-    pm25_obj = Contaminante.objects.get(nombre="PM2.5")
-    pm10_obj = Contaminante.objects.get(nombre="PM10")
-    ica_obj = Contaminante.objects.get(nombre="ICA")
-
-    for station_name, data in stations_data.items():
-        try:
-            estacion_obj = Estacion.objects.get(nombre=station_name)
-
-            for contaminante_nombre, valor in data.items():
-                if contaminante_nombre == "PM2.5":
-                    contaminante_obj = pm25_obj
-                elif contaminante_nombre == "PM10":
-                    contaminante_obj = pm10_obj
-                else:
-                    contaminante_obj = ica_obj
-
-                Medicion.objects.create(
-                    estacion=estacion_obj,
-                    contaminante=contaminante_obj,
-                    valor=valor,
-                    fecha=timezone.now()
-                )
-
-            print(f"Guardado: {station_name}")
-        except Exception as e:
-            print(f"Error guardando {station_name}: {e}")
-
-    print("Script completado ✅")
-
+    print("Stations scraped:", stations_data)
 
 if __name__ == "__main__":
     run()

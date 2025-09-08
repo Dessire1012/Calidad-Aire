@@ -13,9 +13,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: List files (debug root)
-        run: ls -R
-
       - name: Locate scraping.py
         id: locate
         run: |
@@ -27,27 +24,17 @@ jobs:
           echo "SCRIPT_PATH=$SCRIPT_PATH" >> $GITHUB_ENV
           echo "Encontrado: $SCRIPT_PATH"
 
-      - name: Show parent folders (debug)
-        run: |
-          echo "SCRIPT_PATH=$SCRIPT_PATH"
-          SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
-          echo "SCRIPT_DIR=$SCRIPT_DIR"
-          ls -la "$SCRIPT_DIR"
-          CANDIDATE_BASE="$(dirname "$(dirname "$SCRIPT_DIR")")"
-          echo "CANDIDATE_BASE=$CANDIDATE_BASE"
-          ls -la "$CANDIDATE_BASE" || true
-
       - name: Set Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
 
-      - name: Install dependencies (runner python)
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install playwright
-          playwright install --with-deps chromium
+          playwright install --with-deps
 
       - name: Run scraping script
         env:
@@ -59,9 +46,11 @@ jobs:
           echo "DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE"
           python "$SCRIPT_PATH"
 
-      - name: Upload screenshot
+      - name: Upload artifacts (screenshot + dump)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: scraping_screenshot
-          path: scraping_test.png
+          name: scraping_debug
+          path: |
+            scraping_test.png
+            scraping_dump.html
