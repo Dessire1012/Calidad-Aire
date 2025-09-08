@@ -15,14 +15,39 @@ django.setup()
 
 from clima_app.models import Medicion, Estacion, Contaminante
 
+import os
+import sys
+import django
+from django.utils import timezone
+from playwright.sync_api import sync_playwright
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(BASE_DIR))
+sys.path.insert(0, str(BASE_DIR / "ProyectoClima"))
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", os.getenv("DJANGO_SETTINGS_MODULE", "ProyectoClima.settings"))
+
+django.setup()
+
+from clima_app.models import Medicion, Estacion, Contaminante
+
 def load_grafana_and_grab(page):
-    url = "https://estaciones.simet.amdc.hn/public-dashboards/e4d697a0e31647008370b09a592c0129?orgId=1&refresh=1m&from=now%2Fy&to=now"
+    url = "https://estaciones.simet.amdc.hn/public-dashboards/e4d697a0e31647008370b09a592c0129?orgId=1&from=now-24h&to=now"
     print("Navegando a:", url)
-    page.goto(url, timeout=90_000, wait_until="domcontentloaded")
-    page.wait_for_load_state("networkidle", timeout=60_000)
-    page.wait_for_timeout(5000)
+
+    page.goto(url, timeout=180_000, wait_until="domcontentloaded")
+    page.wait_for_load_state("networkidle", timeout=180_000)
+
+    # Esperar a que los valores realmente aparezcan en cada panel
+    page.wait_for_selector("div[data-testid='data-testid Bar gauge value'] span", timeout=180_000)
+
+    # viewport grande en vez de zoom
+    page.set_viewport_size({"width": 5120, "height": 2880})
+
     page.screenshot(path="scraping_test.png", full_page=True)
     print("Screenshot guardado: scraping_test.png")
+
     html = page.content()
     with open("scraping_dump.html", "w", encoding="utf-8") as f:
         f.write(html[:200000])
@@ -33,7 +58,6 @@ def run():
     stations_data = {}
     with sync_playwright() as p:
         try:
-            # Chromium
             browser = p.chromium.launch(
                 headless=True,
                 args=["--no-sandbox", "--disable-dev-shm-usage"]
@@ -43,15 +67,13 @@ def run():
                 user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123 Safari/537.36",
                 ignore_https_errors=True,
             )
-            load_grafana_and_grab(page)
         except Exception as e:
             print("[WARN] Chromium falló:", repr(e))
-            # Firefox fallback
             browser = p.firefox.launch(headless=True)
             page = browser.new_page(ignore_https_errors=True)
-            load_grafana_and_grab(page)
-        finally:
-            browser.close()
+
+        # cargar y tomar screenshot/dump
+        load_grafana_and_grab(page)
 
         # Scraping PM2.5
         pm25_stations = page.query_selector_all("section[data-testid*='Material Particulado 2.5'] div[style*='text-align: center;']")
@@ -77,7 +99,9 @@ def run():
         except Exception as e:
             print("Error AQI:", e)
 
-    print("Stations scraped:", stations_data)
+        print("Stations scraped:", stations_data)
+
+        browser.close()
 
 if __name__ == "__main__":
     run()
