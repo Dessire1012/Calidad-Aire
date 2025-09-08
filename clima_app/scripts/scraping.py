@@ -13,16 +13,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", os.getenv("DJANGO_SETTINGS_MODUL
 
 django.setup()
 
-from django.conf import settings
 from clima_app.models import Medicion, Estacion, Contaminante
-
-print("=== Django/DB ===")
-print("DJANGO_SETTINGS_MODULE:", os.getenv("DJANGO_SETTINGS_MODULE"))
-print("DB ENGINE:", settings.DATABASES['default']['ENGINE'])
-print("DB NAME:", settings.DATABASES['default']['NAME'])
-print("DB HOST:", settings.DATABASES['default'].get('HOST'))
-print("USING DATABASE URL:", os.getenv("DATABASE_URL"))
-print("=================\n")
 
 def run():
     stations_data = {}
@@ -31,14 +22,24 @@ def run():
         browser = p.chromium.launch(headless=True)  # Usa Chromium headless
         page = browser.new_page(viewport={"width": 1920, "height": 1080})
         page.goto("https://estaciones.simet.amdc.hn/public-dashboards/e4d697a0e31647008370b09a592c0129?orgId=1&refresh=1m&from=now%2Fy&to=now")
+        
+        print("URL actual:", page.url)
 
+        # Esperar unos segundos para que cargue
         page.wait_for_timeout(60000)
+
+        # Guardar captura de pantalla
+        page.screenshot(path="scraping_test.png", full_page=True)
+        print("Screenshot guardado en scraping_test.png")
+
         page.evaluate("document.body.style.zoom='40%'")
 
         # Esperar elementos PM2.5
         try:
             pm25_stations = page.query_selector_all("section[data-testid*='Panel header Material Particulado 2.5 µg/m³'] div[style*='text-align: center;']")
             pm25_values = page.query_selector_all("section[data-testid*='Panel header Material Particulado 2.5 µg/m³'] span.flot-temp-elem")
+
+            print("PM2.5 - estaciones:", len(pm25_stations), "valores:", len(pm25_values))
 
             for s, v in zip(pm25_stations, pm25_values):
                 stations_data[s.inner_text().strip()] = {"PM2.5": v.inner_text().strip()}
@@ -49,6 +50,8 @@ def run():
         try:
             pm10_stations = page.query_selector_all("section[data-testid*='Panel header Material Particulado 10 µ/m³'] div[style*='text-align: center;']")
             pm10_values = page.query_selector_all("section[data-testid*='Panel header Material Particulado 10 µ/m³'] span.flot-temp-elem")
+            
+            print("PM10 - estaciones:", len(pm10_stations), "valores:", len(pm10_values))
 
             for s, v in zip(pm10_stations, pm10_values):
                 if s.inner_text().strip() in stations_data:
