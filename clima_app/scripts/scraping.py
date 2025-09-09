@@ -1,6 +1,6 @@
 import os
-import django
 import sys
+import django
 from django.utils import timezone
 from asgiref.sync import sync_to_async
 from playwright.async_api import async_playwright 
@@ -19,6 +19,15 @@ async def load_grafana_and_grab(page):
     await page.wait_for_load_state("networkidle", timeout=180_000)  # Esperar a que se cargue completamente
 
     await page.set_viewport_size({"width": 5120, "height": 2880})
+
+    await page.screenshot(path="scraping_test.png", full_page=True)  # Esperar captura de pantalla
+    print("Screenshot guardado: scraping_test.png")
+
+    # Esperar y obtener el contenido de la página
+    html = await page.content()
+    with open("scraping_dump.html", "w", encoding="utf-8") as f:
+        f.write(html[:200000])  # Solo guardar una porción del HTML
+    print("Dump HTML guardado: scraping_dump.html")
 
 @sync_to_async
 def get_or_create_estacion(station_name):
