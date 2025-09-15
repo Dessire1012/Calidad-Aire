@@ -20,15 +20,11 @@ BASE_URL = "http://api.airvisual.com/v2"
 COUNTRY = "Honduras"
 
 stations = [
-    ("Dulce Nombre de Culmí", "Olancho"),
-    ("Tegucigalpa", "Francisco Morazán"),
-    ("El Terrero", "Francisco Morazán"),
-    ("San Pedro Sula", "Cortés"),
-    ("Copán", "Copán"),
-    ("Lamani", "Comayagua"),
+    ("Siguatepeque", "Comayagua"),
     ("Comayagua", "Comayagua"),
-    ("El Negrito", "Yoro"),
-    ("Agua Blanca Sur", "Yoro"),
+    ("Tegucigalpa", "Francisco Morazan"),
+    ("San Pedro Sula", "Cortes"),
+    ("Choloma", "Cortes"),
 ]
 
 def fetch_and_store_data():
@@ -58,7 +54,7 @@ def fetch_and_store_data():
                 if aqi is not None:
                     # Crear o actualizar estación
                     estacion, created = Estacion.objects.get_or_create(
-                        nombre=f"{city}, {state}",
+                        nombre=f"----{city}, {state}",
                         fuente="IQAir",  # <- importante
                         defaults={
                             "lat": coords[1],

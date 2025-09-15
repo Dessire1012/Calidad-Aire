@@ -44,9 +44,7 @@ def fetch_sensor_measurements(sensor_id, parameter, estacion):
             fecha = r.get("date", {}).get("local", "N/A")
             print(f"    {parameter.upper()}: {val} {units} at {fecha}")
 
-            # Guardar medición en la base de datos solo si el valor no es N/A
             if val != "N/A":
-                # Obtener o crear el contaminante (si no existe)
                 contaminante, _ = Contaminante.objects.get_or_create(nombre=parameter)
 
                 # Guardar la medición en la base de datos

@@ -1,0 +1,56 @@
+Contaminante,Nivel ICA,Limite inferior,Limite superior,Acciones
+PM10,Excelente,0.00,50.00,Aire limpio: actividades al aire libre seguras para todos.
+PM10,Bueno,51.00,100.00,Aceptable: personas sensibles pueden considerar reducir esfuerzos intensos.
+PM10,Regular,101.00,150.00,Evitar actividades físicas prolongadas al aire libre si eres sensible.
+PM10,Malo,151.00,200.00,Limitar actividades al aire libre; grupos sensibles deben permanecer en interiores.
+PM10,Muy Malo,201.00,300.00,Todos deben reducir actividades al aire libre; personas vulnerables evitar salir.
+PM10,Extremadamente Malo,301.00,500.00,Evitar salir; usar mascarillas adecuadas; buscar refugio interior.
+
+PM2.5,Excelente,0.00,25.00,Aire limpio: actividades al aire libre seguras.
+PM2.5,Bueno,26.00,50.00,Aceptable: sensibles considerar reducir actividades físicas intensas.
+PM2.5,Regular,51.00,75.00,Grupos sensibles deben reducir actividades prolongadas al aire libre.
+PM2.5,Malo,76.00,100.00,Limitar actividades; sensibles permanecer en interiores.
+PM2.5,Muy Malo,101.00,150.00,Todos deben reducir actividades al aire libre.
+PM2.5,Extremadamente Malo,151.00,200.00,Evitar actividades al aire libre; buscar ambientes interiores limpios.
+
+NO₂,Excelente,0.00,40.00,Condiciones normales; sin restricciones.
+NO₂,Bueno,41.00,80.00,Aceptable: sensibles atentos a síntomas.
+NO₂,Regular,81.00,120.00,Sensibles reducir exposición prolongada en exteriores.
+NO₂,Malo,121.00,180.00,Limitar actividades intensas al aire libre.
+NO₂,Muy Malo,181.00,280.00,Personas sensibles permanecer en interiores; todos reducir actividades.
+NO₂,Extremadamente Malo,281.00,500.00,Evitar exposición; permanecer en interiores.
+
+CO,Excelente,0.00,3.00,Sin riesgos; aire limpio.
+CO,Bueno,4.00,6.00,Condiciones aceptables.
+CO,Regular,7.00,9.00,Sensibles deben evitar esfuerzos prolongados.
+CO,Malo,10.00,12.00,Limitar actividades al aire libre.
+CO,Muy Malo,13.00,15.00,Personas vulnerables evitar salir.
+CO,Extremadamente Malo,16.00,30.00,Todos deben permanecer en interiores.
+
+SO₂,Excelente,0.00,10.00,Sin riesgos; aire limpio.
+SO₂,Bueno,11.00,20.00,Condiciones aceptables.
+SO₂,Regular,21.00,30.00,Sensibles evitar exposición prolongada.
+SO₂,Malo,31.00,40.00,Limitar actividades al aire libre.
+SO₂,Muy Malo,41.00,50.00,Evitar actividades intensas al aire libre.
+SO₂,Extremadamente Malo,51.00,60.00,Permanecer en interiores.
+
+O₃,Excelente,0.00,50.00,Sin riesgos; aire limpio.
+O₃,Bueno,51.00,100.00,Aceptable: sensibles atentos a síntomas.
+O₃,Regular,101.00,150.00,Reducir exposición prolongada al aire libre.
+O₃,Malo,151.00,200.00,Limitar actividades físicas; sensibles permanecer en interiores.
+O₃,Muy Malo,201.00,250.00,Todos deben reducir actividades al aire libre.
+O₃,Extremadamente Malo,251.00,500.00,Evitar salir; permanecer en interiores.
+
+PM1,Excelente,0.00,50.00,Sin riesgos; aire limpio.
+PM1,Bueno,51.00,100.00,Condiciones aceptables.
+PM1,Regular,101.00,150.00,Sensibles reducir actividades intensas.
+PM1,Malo,151.00,200.00,Limitar actividades físicas al aire libre.
+PM1,Muy Malo,201.00,250.00,Evitar actividades al aire libre si es posible.
+PM1,Extremadamente Malo,251.00,300.00,Permanecer en interiores; usar protección respiratoria.
+
+RH,Excelente,0.00,40.00,Condiciones normales; sin riesgos.
+RH,Bueno,41.00,60.00,Confort óptimo para la mayoría de personas.
+RH,Regular,61.00,80.00,Posible incomodidad; hidratarse adecuadamente.
+RH,Malo,81.00,100.00,Condiciones húmedas; riesgo de moho y alergias.
+RH,Muy Malo,101.00,120.00,Ambiente poco saludable; evitar espacios cerrados húmedos.
+RH,Extremadamente Malo,121.00,150.00,Condiciones críticas; usar deshumidificadores o protección.

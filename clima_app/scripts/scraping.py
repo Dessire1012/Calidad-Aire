@@ -16,11 +16,11 @@ async def load_grafana_and_grab(page):
     print("Navegando a:", url)
 
     await page.goto(url, timeout=180_000, wait_until="domcontentloaded")  # Esperar la navegación
-    await page.wait_for_load_state("networkidle", timeout=180_000)  # Esperar a que se cargue completamente
+    await page.wait_for_load_state("networkidle", timeout=180_000) 
 
     await page.set_viewport_size({"width": 5120, "height": 2880})
 
-    await page.screenshot(path="scraping_test.png", full_page=True)  # Esperar captura de pantalla
+    await page.screenshot(path="scraping_test.png", full_page=True) 
     print("Screenshot guardado: scraping_test.png")
 
     # Esperar y obtener el contenido de la página

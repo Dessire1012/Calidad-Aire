@@ -30,6 +30,8 @@ class Estacion(models.Model):
 
     nombre = models.CharField(max_length=150)
     fuente = models.CharField(max_length=20, choices=FUENTE_CHOICES, default='OpenAQ')
+    localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE, default=2)
+    entidad = models.ForeignKey(Entidad, on_delete=models.CASCADE, default=2)
 
     # Identificador externo (ej. OpenAQ location_id)
     external_id = models.IntegerField(null=True, blank=True)
@@ -71,7 +73,7 @@ class NivelICA(models.Model):
     )
 
     # Color en formato hexadecimal
-    color_hex = models.CharField(max_length=7,  default='#FFFFFF')  # Ejemplo: "#FF0000"
+    color_hex = models.CharField(max_length=7,  default='#FFFFFF') 
 
     # Clasificación respecto a la salud
     clasificacion_salud = models.CharField(
@@ -95,7 +97,9 @@ class Medicion(models.Model):
 class NivelesContaminantes(models.Model):
     nivel_ica = models.ForeignKey(NivelICA, on_delete=models.CASCADE)
     contaminante = models.ForeignKey(Contaminante, on_delete=models.CASCADE)
-    valor_maximo = models.FloatField()
+    limite_inferior = models.FloatField(default=0) 
+    limite_superior = models.FloatField(default=0)
+    acciones = models.CharField(max_length=200, null=True,)
 
     def __str__(self):
         return f"{self.nivel_ica} - {self.contaminante.nombre}"
