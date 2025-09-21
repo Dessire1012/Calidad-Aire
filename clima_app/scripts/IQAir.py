@@ -28,7 +28,7 @@ stations = [
 ]
 
 def fetch_and_store_data():
-    contaminante_ica, _ = Contaminante.objects.get_or_create(nombre="ICA")
+    contaminante_aqi, _ = Contaminante.objects.get_or_create(nombre="AQI")
     for city, state in stations:
         url = f"{BASE_URL}/city"
         params = {
@@ -52,20 +52,16 @@ def fetch_and_store_data():
                 coords = data["data"]["location"]["coordinates"]
 
                 if aqi is not None:
-                    # Crear o actualizar estación
-                    estacion, created = Estacion.objects.get_or_create(
-                        nombre=f"----{city}, {state}",
-                        fuente="IQAir",  # <- importante
-                        defaults={
-                            "lat": coords[1],
-                            "lon": coords[0]
-                        }
-                    )
+                    try:
+                        estacion = Estacion.objects.get(fuente="IQAir", localidad__nombre__iexact=city)
+                    except Estacion.DoesNotExist:
+                        print(f"No station found for {city}, {state} in DB (fuente=IQAir)")
+                        continue
 
                     # Guardar medición
                     Medicion.objects.create(
                         estacion=estacion,
-                        contaminante=contaminante_ica,
+                        contaminante=contaminante_aqi,
                         valor=aqi,
                         fecha=timezone.now()
                     )

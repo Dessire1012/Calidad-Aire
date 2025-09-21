@@ -46,6 +46,9 @@ def create_medicion(estacion, contaminante, contaminante_value):
         fecha=timezone.now()
     )
 
+def normalize_station_name(name: str) -> str:
+    return name.replace("AMDC ", "").strip()
+
 # Función para ejecutar el scraping y guardar en la base de datos
 async def run():
     stations_data = {}
@@ -74,7 +77,7 @@ async def run():
         for s, v in zip(pm10_stations, pm10_values):
             name = await s.inner_text()
             stations_data.setdefault(name, {})  # Crear estación si no existe
-            stations_data[name]["PM10"] = await v.inner_text()
+            stations_data[name]["PM1"] = await v.inner_text()
 
         # Scraping AQI
         try:
@@ -91,7 +94,9 @@ async def run():
 
         # Guardar los datos en la base de datos
         for station_name, data in stations_data.items():
-            estacion, created = await get_or_create_estacion(station_name)
+            normalized_name = normalize_station_name(station_name)
+
+            estacion, created = await get_or_create_estacion(normalized_name)
 
             for contaminante_name, contaminante_value in data.items():
                 contaminante, _ = await get_or_create_contaminante(contaminante_name)
