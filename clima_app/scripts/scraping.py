@@ -77,7 +77,7 @@ async def run():
         for s, v in zip(pm10_stations, pm10_values):
             name = await s.inner_text()
             stations_data.setdefault(name, {})  # Crear estación si no existe
-            stations_data[name]["PM1"] = await v.inner_text()
+            stations_data[name]["PM10"] = await v.inner_text()
 
         # Scraping AQI
         try:

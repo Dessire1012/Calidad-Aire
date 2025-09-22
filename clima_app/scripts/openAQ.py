@@ -5,6 +5,8 @@ import django
 from dotenv import load_dotenv
 from datetime import datetime, timezone as dt_timezone
 import time
+from datetime import timedelta
+FRESH_HOURS = 3
 
 # Configuración de Django
 sys.path.append(r'C:\Users\dessi\ProyectoClima')
@@ -25,7 +27,7 @@ location_ids = [
     4959160, 5456449
 ]
 
-# Diccionario de mapeo: API → nombres en tu BD
+# Diccionario de mapeo: API → nombres en la BD
 PARAM_MAP = {
     "pm10": "PM10",
     "pm25": "PM2.5",
@@ -81,6 +83,18 @@ def fetch_station_latest(location_id):
         print(f"No se pudo obtener info de la estación {location_id}")
         return
 
+    last_str = (station_info.get("datetimeLast") or {}).get("utc")
+    if last_str:
+        try:
+            last_dt = datetime.fromisoformat(last_str.replace("Z", "+00:00")).astimezone(dt_timezone.utc)
+            if datetime.now(dt_timezone.utc) - last_dt > timedelta(hours=FRESH_HOURS):
+                name = station_info.get("name", f"Location {location_id}")
+                print(f"Saltando por 'stale' (> {FRESH_HOURS}h): {name} ({location_id}) — last={last_str}")
+                return
+        except Exception:
+            # si no se puede parsear, seguimos sin bloquear
+            pass
+
     external_id = station_info.get("id")
     station_name = station_info.get("name", f"Location {location_id}")
 
@@ -95,34 +109,32 @@ def fetch_station_latest(location_id):
         sensor_id = entry.get("sensorsId")
         value = entry.get("value")
 
-        # 1) Trae el parámetro del sensor
         sensor_info = get_sensor_details(sensor_id)
         param_raw = sensor_info.get("parameter", {}).get("name", "").lower()
         units = sensor_info.get("parameter", {}).get("units", "")
 
-        # 2) Mapea al nombre en la BD
         contaminante_name = PARAM_MAP.get(param_raw)
         if not contaminante_name:
             print(f"Parámetro '{param_raw}' no mapeado, se omite")
             continue
 
-        # 3) CONVERSIÓN DE FECHA
-        dt_utc_str = entry.get("datetime", {}).get("utc")  # ej: '2025-09-21T23:00:00Z'
+        dt_utc_str = entry.get("datetime", {}).get("utc")
         if not dt_utc_str:
             print(f"Sin fecha en la medición, se omite")
             continue
 
-        # Convierte string ISO8601 con 'Z' a datetime aware en UTC
-        dt_utc = datetime.fromisoformat(dt_utc_str.replace("Z", "+00:00"))
-        dt_utc = dt_utc.astimezone(dt_timezone.utc) 
+        # Seguridad extra: también filtra cada entry si viene vieja (> FRESH_HOURS)
+        dt_utc = datetime.fromisoformat(dt_utc_str.replace("Z", "+00:00")).astimezone(dt_timezone.utc)
+        if datetime.now(dt_timezone.utc) - dt_utc > timedelta(hours=FRESH_HOURS):
+            print(f"  ⏩ Omitiendo entry 'stale' ({dt_utc_str}) para {contaminante_name}")
+            continue
 
-        # 4) Guarda en BD con fecha UTC
         contaminante, _ = Contaminante.objects.get_or_create(nombre=contaminante_name)
         Medicion.objects.create(
             estacion=estacion,
             contaminante=contaminante,
             valor=value,
-            fecha=dt_utc,  
+            fecha=dt_utc,
         )
 
         print(f"{contaminante_name}: {value} {units} @ {dt_utc_str}")
