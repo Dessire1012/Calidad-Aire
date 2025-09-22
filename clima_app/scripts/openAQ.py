@@ -126,7 +126,7 @@ def fetch_station_latest(location_id):
         # Seguridad extra: también filtra cada entry si viene vieja (> FRESH_HOURS)
         dt_utc = datetime.fromisoformat(dt_utc_str.replace("Z", "+00:00")).astimezone(dt_timezone.utc)
         if datetime.now(dt_timezone.utc) - dt_utc > timedelta(hours=FRESH_HOURS):
-            print(f"  ⏩ Omitiendo entry 'stale' ({dt_utc_str}) para {contaminante_name}")
+            print(f"Omitiendo entry 'stale' ({dt_utc_str}) para {contaminante_name}")
             continue
 
         contaminante, _ = Contaminante.objects.get_or_create(nombre=contaminante_name)
